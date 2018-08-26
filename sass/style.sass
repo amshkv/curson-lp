@@ -1,0 +1,851 @@
+@import fonts.scss
+
+@mixin trans($element) 
+  transition: $element .3s ease-in-out;
+  
+@keyframes shake
+  0% 
+    transform:scale(1)
+  10%, 20% 
+    transform: scale(0.99) rotate(-1deg)
+  30%, 50%, 70%, 90% 
+    transform: scale(1.01) rotate(1deg)
+  40%, 60%, 80% 
+    transform: scale(1.01) rotate(-1deg)
+  100% 
+    transform: scale(1) rotate(0)
+
+@mixin wrapper 
+  width: 1260px
+  padding-left: 20px
+  padding-right: 20px
+  box-sizing: border-box
+  margin-left: auto
+  margin-right: auto
+
+@mixin size($width, $height: $width)
+  width: $width
+  height: $height
+
+@mixin bgcl($url, $ext)
+  background-image: url('../img/' + $url + '.' + $ext );
+  background-image: image-set(url('../img/' + $url + '.' + $ext) 1x, url('../img/' + $url+ '@2x.' + $ext) 2x, url('../img/' + $url + '@3x.' + $ext) 3x);
+
+@mixin bg($url, $ext)
+  background: url('../img/' + $url + '.' + $ext ) center no-repeat;
+  background: image-set(url('../img/' + $url + '.' + $ext) 1x, url('../img/' + $url+ '@2x.' + $ext) 2x, url('../img/' + $url + '@3x.' + $ext) 3x) center no-repeat;
+
+$main-fonts : ProximaNova, sans-serif;
+
+body 
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 400;
+  font-family: $main-fonts
+  margin: 0;
+  padding: 0;
+  color: #4A4A4A;
+  position: relative
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: auto;
+  // overflow-x: hidden
+
+.second-title
+  font-weight: 800;
+  line-height: 50px;
+  font-size: 50px;
+  margin: 0
+  &--dark
+    color: #3408D5;
+  &--light
+    color: #26FBCB;
+  
+
+
+.button
+  border: none;
+  padding: 0
+  width: 250px
+  height: 60px
+  line-height: 60px
+  text-decoration: none
+  font-weight: 600;
+  font-size: 17px;
+  text-align: center;
+  font-family: $main-fonts
+  cursor: pointer
+
+  &:hover, &:focus
+    animation-name: shake;
+    animation-duration: 0.8s;
+    transform-origin: 50% 50%;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  
+  &--light
+    color: #000000;
+    background: #26FBCB;
+  
+  &--dark
+    color: #fff
+    background: #3408D5;
+    box-shadow: 0px 14px 45px rgba(0, 27, 255, 0.304433);
+    
+
+.header
+  position: absolute
+  left: 0
+  right: 0
+  @include wrapper
+  z-index: 5
+  padding-top: 40px
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  &__logo
+    width: 228px
+    height: 59px
+    display: block
+    @include trans(opacity)
+    &:hover
+      opacity: .8
+    &-img
+      display: block
+
+  &__phone
+    font-weight: bold;
+    line-height: 28px;
+    font-size: 28px;
+    text-align: right;
+    color: #FFFFFF;
+    text-decoration: none
+    display: block
+    position: relative
+      
+    &:after
+      content: '';
+      position: absolute
+      left: 0
+      right: 0
+      bottom: 0
+      background-color: #fff
+      height: 2px
+      transform: scaleX(0);
+      @include trans(transform)
+
+    &:hover:after
+      transform: scaleX(1);
+
+.main-block
+  padding-top: 120px
+  padding-bottom: 97px
+  @include bg(header-pic, png)
+  background-size: cover;
+  background-color: #000BE1
+
+  &__inner
+    @include wrapper
+    position: relative
+
+  &__title
+    font-weight: bold;
+    line-height: 50px;
+    font-size: 50px;
+    color: #FFFFFF;
+    max-width: 750px;
+    margin-top: 75px
+    margin-bottom: 0
+    position: relative
+    z-index: 1
+    &-color
+      display: block
+      color: #26FBCB;
+
+  &__subtitle
+    font-weight: normal;
+    line-height: 28px;
+    font-size: 24px;
+    color: #FFFFFF;
+    max-width: 550px
+    margin-top: 20px
+    position: relative
+    z-index: 1
+
+    &:after
+      content: ''
+      width: 336px
+      height: 15px
+      background: url('../img/subtitle_cov.svg') center no-repeat;
+      display: block
+      margin-top: 40px
+
+  &__button
+    margin-top: 40px
+
+  &__text
+    line-height: 28px;
+    font-size: 24px;
+    color: #FFFFFF;
+    max-width: 450px;
+    margin-top: 31px
+
+    &-color
+      color: #26FBCB;
+
+  &__date
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 600px;
+    line-height: 1
+    color: #FF00A2;
+    position: absolute
+    top: -166px
+    left: 28%
+    z-index: 0
+
+.schedule
+  position: relative
+  @include wrapper
+  display: flex
+  margin-bottom: -250px
+
+  &:before
+    content: ''
+    @include size(326px, 486px)
+    position: absolute
+    left: 90px
+    top: -95px
+    @include bg(people, png)
+
+  &:after
+    content: '';
+    height: 435px
+    width: 99999px;
+    position: absolute
+    left: 590px
+    top: -35px
+    background: url('../img/lines.svg') left center no-repeat;
+
+  &__info
+    width: 650px
+    background: #F6F5FA;
+    position: relative
+    top: -301px
+    z-index: 1
+    padding: 56px 60px 33px 56px
+    box-sizing: border-box
+    margin-left: auto
+  &__title
+    max-width: 350px;
+
+  &__list
+    list-style: none
+    margin: 40px 0 0
+    padding: 0
+    position: relative
+
+    &:before
+      content: '';
+      width: 2px
+      height: 100%
+      position: absolute
+      top: -10px
+      left: 15px
+      background: url('../img/Line2.svg') center no-repeat
+
+  &__item
+    font-weight: normal;
+    line-height: 28px;
+    font-size: 24px;
+    color: #4A4A4A;
+    padding-left: 65px
+    position: relative
+    &:before
+      content: ''
+      @include size(32px)
+      position: absolute
+      background: url('../img/oval.svg') center no-repeat
+      left: 0
+      top: 0
+
+
+
+    & + &
+      margin-top: 36px
+
+.open-day
+  @include wrapper;
+  position: relative
+
+  &:before
+    content: 'Заполните'
+    font-family: 'Bebas Neue', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 300px;
+    text-align: right;
+    color: #F6F5FA;
+    position: absolute
+    display: block
+    top: 255px
+    right: -90px
+  &:after
+    content: ''
+    width: 1003px
+    height: 880px
+    position: absolute
+    right: -51px
+    top: 44px
+    @include bg(sign, png)
+
+
+  &__subtitle
+    font-family: 'Bebas Neue', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    line-height: 95px;
+    font-size: 100px;
+    color: #26FBCB;
+    max-width: 580px
+    position: relative
+
+  &__title
+    margin-top: 86px
+    max-width: 450px
+    position: relative
+  
+  &__text
+    font-weight: normal;
+    line-height: 28px;
+    font-size: 24px;
+    color: #4A4A4A;
+    max-width: 500px
+    margin-top: 88px
+    position: relative
+  
+  &__button
+    margin-top: 24px
+
+.map
+  margin-top: 80px
+  @include bg(map, png)
+  background-size: cover;
+  background-color: #2E72C2
+  padding-top: 152px
+  padding-bottom: 138px
+
+  &__inner
+    @include wrapper
+    position: relative
+
+    &:before
+      content: 'Приезжайте'
+      font-family: 'Bebas Neue', sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      line-height: normal;
+      font-size: 300px;
+      text-align: right;
+      color: #2E72C2;
+      mix-blend-mode: normal;
+      opacity: 0.5;
+      position: absolute
+      right: -90px
+      top: -135px
+
+  &__title
+    position: relative
+  
+  &__text
+    font-weight: 800;
+    line-height: 28px;
+    font-size: 24px;
+    color: #FFFFFF;
+    max-width: 580px
+    margin-top: 120px
+
+  &__date
+    margin-top: 25px
+    width: 260px
+    height: 56px
+    line-height: 56px
+    font-weight: 600;
+    font-size: 24px;
+    color: #3408D5;
+    text-align: center;
+    background: #26FBCB;
+    
+  &__address
+    margin-top: 23px
+    background: #3408D5;
+    max-width: 500px;
+    line-height: 28px;
+    font-size: 24px;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    box-sizing: border-box
+
+    
+.training
+  @include wrapper
+  padding-top: 152px
+  padding-bottom: 65px
+  position: relative
+
+  &:before
+    content: 'Обучайтесь'
+    font-family: 'Bebas Neue', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    font-size: 300px;
+    text-align: right;
+    color: #F6F5FA;
+    position: absolute
+    display: block
+    top: 19px
+    right: -90px
+
+  &:after
+    content: ''
+    @include size(735px, 842px)
+    position: absolute
+    right: -26px
+    top: 105px
+    display: block
+    @include bg(laptop, png)
+
+  &__title
+    position: relative
+
+  &__text
+    line-height: 28px;
+    font-size: 24px;
+    color: #4A4A4A;
+    margin-top: 118px
+    max-width: 670px
+
+
+  &__info
+    margin-top: 30px
+    background: #F6F5FA;
+    max-width: 650px;
+    box-sizing: border-box
+    padding: 42px 70px 46px
+    position: relative
+
+    &:before
+      content: ''
+      width: 21px
+      height: 460px
+      background: url('../img/Stroke1.svg') center no-repeat
+      position: absolute
+      left: 10px
+      top: 14px
+
+    &-title
+      margin: 0
+      font-weight: 800;
+      line-height: 28px;
+      font-size: 24px;
+      color: #3408D5;
+
+    &-text
+      margin-top: 16px;
+      line-height: 28px;
+      font-size: 20px;
+      color: #4A4A4A;
+
+    &-button
+      margin-top: 24px
+
+.entry
+  margin-top: 0px
+  background: linear-gradient(157.99deg, #000BE1 0%, #9700FF 100%);
+
+  &__inner
+    @include wrapper
+    padding-top: 170px
+    padding-bottom: 55px
+    display: flex
+    justify-content: space-between
+    position: relative
+
+    &:before
+      content: 'Запишитесь'
+      font-family: 'Bebas Neue', sans-serif;
+      font-weight: bold;
+      line-height: normal;
+      font-size: 300px;
+      text-align: right;
+      color: rgba(38, 251, 203, 0.2);
+      right: -89px
+      top: 18px
+      position: absolute
+    &:after
+      content: ''
+      position: absolute
+      @include size(442px, 476px)
+      @include bg(mail, png)
+      transform: translate(-50%, -50%)
+      left: 50%
+      top: 50%      
+
+
+  &__info
+    width: 400px
+    position: relative
+
+    &:after
+      content: ''
+      height: 435px
+      width: 1275px
+      right: -135px
+      top: 152px
+      position: absolute
+      background: url('../img/lines.svg') center right no-repeat;
+  &__text
+    margin-top: 15px
+    line-height: 24px;
+    font-size: 20px;
+    color: #FFFFFF;
+
+    &-color
+      color: #26FBCB;
+
+  &__date
+    margin-top: 31px
+    width: 221px
+    height: 40px
+    line-height: 40px
+    font-weight: 800;
+    font-size: 20px;
+    color: #3408D5;
+    text-align: center
+    background: #26FBCB;
+    position: relative;
+    z-index: 1
+
+  &__form
+    max-width: 423px
+    position: relative
+    z-index: 2
+    padding-top: 10px
+
+.text-error
+  display: block
+  color: red
+  opacity: 0
+  @include trans(opacity)
+  position: absolute
+
+.form
+  width: 100%
+
+  &__input
+    &-wrap
+      width: 100%
+      margin-bottom: 24px
+
+      &.error .text-error
+        opacity: 1
+
+    &-text
+      width: 100%
+      height: 50px
+      padding: 0 20px
+      box-sizing: border-box
+      border-radius: 3px;
+      border: none
+      mix-blend-mode: normal;
+      opacity: 0.3;
+      line-height: 50px;
+      font-size: 16px;
+      color: #000000;
+      font-family: $main-fonts;
+      @include trans(opacity)
+      outline: none
+
+      &::-ms-clear
+        display: none;
+    
+      &::-webkit-input-placeholder
+        color: rgba(#000, .5);
+        mix-blend-mode: normal;
+      &::-moz-placeholder
+        color: rgba(#000, .5);
+        mix-blend-mode: normal;
+      &:-moz-placeholder
+        color: rgba(#000, .5);
+        mix-blend-mode: normal;
+      &:-ms-input-placeholder
+        color: rgba(#000, .5);
+        mix-blend-mode: normal;
+    
+      &:focus,
+      &.active
+        opacity: 1
+
+  &__label
+    display: block
+    width: 100%
+    margin-top: 20px
+    font-size: 16px;
+    color: #FFFFFF;
+    padding-left: 59px
+    box-sizing: border-box
+    position: relative
+    padding-top: 2px
+    cursor: pointer
+
+    &-icon
+      @include size(24px)
+      display: block
+      position: absolute
+      left: 0
+      top: 3px
+      box-sizing: border-box
+      border-radius: 100%;
+      border: 2px solid #fff
+
+      &:before
+        content: ''
+        width: 10px
+        height: 10px
+        opacity: 0
+        border-radius: 100%
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        position: absolute
+        background-color: #26FBCB;
+        @include trans(opacity)
+  
+
+  &__agreed
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+    left: 12px;
+    top: 50%
+    transform: translateY(-50%);
+
+    &:checked + .form__label-icon:before
+      opacity: 1
+      
+
+  &__button
+    display: block
+    width: 100%
+    -webkit-appearance: none;
+    appearance: none
+    box-shadow: 0px 14px 45px rgba(0, 255, 170, 0.7);
+    height: 60px
+    line-height: 60px
+    font-family: $main-fonts;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    font-size: 17px;
+    text-align: center;
+    background-color: #26FBCB;
+    border: none
+    padding: 0
+    color: #000000;
+    margin-top: 25px
+    cursor: pointer
+    &:hover, &:focus
+      animation-name: shake;
+      animation-duration: 0.8s;
+      transform-origin: 50% 50%;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+
+
+.place
+  @include bg(portplaza, png)
+  background-size: cover
+  background-color: #b8d2ed
+  padding-top: 82px
+  padding-bottom: 78px
+  &__wrapper
+    @include wrapper;
+   
+
+  &__title
+    max-width: 550px 
+    position: relative
+
+  &__inner
+    display: flex
+    justify-content: space-between
+    margin-top: 78px
+
+  &__info
+    width: 500px
+
+  &__bc
+    font-style: normal;
+    font-weight: 800;
+    line-height: 28px;
+    font-size: 24px;
+    color: #000000;
+
+  &__text
+    margin-top: 16px
+    font-weight: normal;
+    font-size: 20px;
+    color: #000000;
+
+  &__adds
+    width: 520px
+    line-height: 28px;
+    font-size: 24px;
+    color: #000000;
+
+  &__address, &__metro
+    position: relative
+    padding-left: 50px
+
+  &__address:before
+    content: ''
+    @include size(32px, 44px)
+    background: url('../img/pin-blue.svg') center no-repeat
+    top: 50%
+    left: -9px
+    position: absolute
+    transform: translateY(-50%);
+  &__metro
+    margin-top: 42px
+    &:before
+      content: ''
+      @include size(41px, 34px)
+      background: url('../img/metro.svg') center no-repeat
+      top: 50%
+      left: -12px
+      position: absolute
+      transform: translateY(-50%);
+
+.footer
+  padding-top: 38px
+  padding-bottom: 50px
+  @include wrapper
+  display: flex
+
+  &__logo
+    width: 228px
+    height: 59px
+    display: block
+    @include trans(opacity)
+
+    &:hover
+      opacity: .8
+    
+    &-image
+      display: block
+
+  &__info
+    display: flex
+    margin-left: 65px
+
+    &-title
+      margin-top: 0
+      margin-bottom: 0
+      font-weight: normal;
+      line-height: 24px;
+      font-size: 16px;
+      color: #9B9B9B;
+  &__text
+    font-weight: normal;
+    line-height: 24px;
+    font-size: 16px;
+    color: #000000;
+
+  &__address
+    width: 324px
+
+  &__phone
+    margin-left: 48px
+
+    &-link
+      line-height: 24px;
+      font-size: 16px;
+      color: #000000;
+      text-decoration: none
+      display: block
+      position: relative
+      
+      &:after
+        content: '';
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 1px
+        background-color: #000
+        height: 1px
+        transform: scaleX(0);
+        @include trans(transform)
+
+      &:hover:after
+        transform: scaleX(1);
+
+  &__site
+    margin-left: 40px
+
+    &-link
+      font-weight: normal;
+      line-height: 24px;
+      font-size: 16px;
+      color: #76BC21;
+      display: block
+      text-decoration: none
+      position: relative
+      
+      &:after
+        content: '';
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 1px
+        background-color: #76BC21;
+        height: 1px
+        transform: scaleX(0);
+        @include trans(transform)
+
+      &:hover:after
+        transform: scaleX(1);
+    
+  &__social
+    margin-left: auto
+    display: flex
+    margin-top: 5px
+
+    &-link
+      display: block
+      margin-left: 15px
+      width: 40px
+      height: 40px
+      border: 1.4px solid #F4F4F4;
+      box-sizing: border-box
+      text-indent: -9999px
+      border-radius: 100%
+      @include trans(border-color)
+
+      &:hover
+        border-color: #D5D5D5;
+
+      &--vk
+        background: url('../img/vk.svg') center no-repeat;
+
+      &--inst
+        background: url('../img/instagram-logo.svg') center no-repeat;
