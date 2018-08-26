@@ -98,6 +98,7 @@ body {
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: auto;
+  overflow-x: hidden;
 }
 
 .second-title {
@@ -159,7 +160,9 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  width: 1260px;
+  min-width: 1260px;
+  max-width: 1260px;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   -webkit-box-sizing: border-box;
@@ -242,7 +245,9 @@ body {
 }
 
 .main-block__inner {
-  width: 1260px;
+  min-width: 1260px;
+  max-width: 1260px;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   -webkit-box-sizing: border-box;
@@ -320,7 +325,9 @@ body {
 
 .schedule {
   position: relative;
-  width: 1260px;
+  min-width: 1260px;
+  max-width: 1260px;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   -webkit-box-sizing: border-box;
@@ -412,7 +419,9 @@ body {
 }
 
 .open-day {
-  width: 1260px;
+  min-width: 1260px;
+  max-width: 1260px;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   -webkit-box-sizing: border-box;
@@ -492,7 +501,9 @@ body {
 }
 
 .map__inner {
-  width: 1260px;
+  min-width: 1260px;
+  max-width: 1260px;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   -webkit-box-sizing: border-box;
@@ -556,7 +567,9 @@ body {
 }
 
 .training {
-  width: 1260px;
+  min-width: 1260px;
+  max-width: 1260px;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   -webkit-box-sizing: border-box;
@@ -655,7 +668,9 @@ body {
 }
 
 .entry__inner {
-  width: 1260px;
+  min-width: 1260px;
+  max-width: 1260px;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   -webkit-box-sizing: border-box;
@@ -936,7 +951,9 @@ body {
 }
 
 .place__wrapper {
-  width: 1260px;
+  min-width: 1260px;
+  max-width: 1260px;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   -webkit-box-sizing: border-box;
@@ -1024,7 +1041,9 @@ body {
 .footer {
   padding-top: 38px;
   padding-bottom: 50px;
-  width: 1260px;
+  min-width: 1260px;
+  max-width: 1260px;
+  width: 100%;
   padding-left: 20px;
   padding-right: 20px;
   -webkit-box-sizing: border-box;
