@@ -32,12 +32,12 @@
 }
 
 @font-face {
-  font-family: 'Bebas Neue Bold';
+  font-family: 'Bebas Neue';
   src: url("../fonts/bebas_neue_bold.eot");
   /* IE 9 Compatibility Mode */
   src: url("../fonts/bebas_neue_bold.eot?#iefix") format("embedded-opentype"), url("../fonts/bebas_neue_bold.woff2") format("woff2"), url("../fonts/bebas_neue_bold.woff") format("woff"), url("../fonts/bebas_neue_bold.ttf") format("truetype"), url("../fonts/bebas_neue_bold.svg#bebas_neue_bold") format("svg");
   /* Chrome < 4, Legacy iOS */
-  font-weight: 700;
+  font-weight: bold;
   font-style: normal;
 }
 
